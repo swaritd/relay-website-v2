@@ -89,7 +89,7 @@ function DynamicChatDemo() {
   }, [hasAnimated, messages.length])
 
   return (
-    <div ref={containerRef} className="bg-white rounded-2xl p-8 shadow-lg border h-80 flex flex-col">
+    <div ref={containerRef} className="bg-white rounded-2xl p-8 shadow-lg border min-h-96 flex flex-col">
       <div className="space-y-4 flex-1 overflow-y-auto">
         {messages.slice(0, visibleMessages).map((message, index) => (
           <div key={index}>

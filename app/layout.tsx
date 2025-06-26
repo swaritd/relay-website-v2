@@ -5,7 +5,7 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "Relay - Never Miss Another Patient Call",
   description:
-    "Relay text-based answering service ensures every patient reaches your dental practice, even when you're busy with appointments. Convert 85% of missed calls into appointments.",
+    "Relay's text-based answering service ensures every patient reaches your dental practice, even when you're busy with appointments. Convert 85% of missed calls into appointments.",
   generator: "v0.dev",
   metadataBase: new URL("https://getrelay.ca"),
   openGraph: {

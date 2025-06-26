@@ -1,7 +1,7 @@
 "use client"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Phone, MessageSquare, Users, CheckCircle, ArrowRight } from "lucide-react"
+import { Phone, MessageSquare, Users, CheckCircle, ArrowUp } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 import { Analytics } from "@vercel/analytics/react"
 
@@ -213,7 +213,7 @@ function ROICalculator() {
           {/* Missed Calls Percentage Slider */}
           <div>
             <label className="block text-sm font-medium text-gray-600 mb-4">
-              What percent of all calls received get missed?
+              What percent of incoming calls are missed?
             </label>
             <div className="relative">
               <input
@@ -258,7 +258,7 @@ function ROICalculator() {
                 <p className="text-2xl font-bold text-green-600">+{formatCurrency(monthlyRecovery)}</p>
               </div>
               <div className="text-green-500">
-                <ArrowRight className="h-6 w-6 transform rotate-45" />
+                <ArrowUp className="h-6 w-6 transform rotate-45" />
               </div>
             </div>
           </div>
@@ -270,7 +270,7 @@ function ROICalculator() {
                 <p className="text-3xl font-bold text-green-600">+{formatCurrency(annualRecovery)}</p>
               </div>
               <div className="text-green-600">
-                <ArrowRight className="h-8 w-8 transform rotate-45" />
+                <ArrowUp className="h-8 w-8 transform rotate-45" />
               </div>
             </div>
           </div>
@@ -367,7 +367,7 @@ export default function LandingPage() {
               <span style={{ color: "#8db5c4" }}>Patient Call</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Relay text-based answering service ensures every patient reaches your dental practice, even when you're
+              Relay's text-based answering service ensures every patient reaches your dental practice, even when you're
               busy with appointments.
             </p>
             <div className="flex justify-center">
@@ -410,7 +410,7 @@ export default function LandingPage() {
                 <div className="text-3xl font-bold mb-2" style={{ color: "#8db5c4" }}>
                   30%
                 </div>
-                <div className="text-gray-600">of calls go unanswered, on average</div>
+                <div className="text-gray-600">of calls go unanswered on average</div>
               </div>
             </div>
           </div>
@@ -425,7 +425,7 @@ export default function LandingPage() {
               Professional. Reliable. Available 24/7.
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Our system works seamlessly with your existing phone system
+              Relay works seamlessly with your existing phone system
             </p>
           </div>
 
@@ -641,7 +641,7 @@ export default function LandingPage() {
           <h2 className="text-3xl lg:text-4xl font-bold mb-6" style={{ color: "#11475b" }}>
             Ready to Stop Missing Patients?
           </h2>
-          <p className="text-xl text-gray-600 mb-8">Join hundreds of dental practices already using Relay</p>
+          <p className="text-xl text-gray-600 mb-8">Reduce revenue loss with Relay</p>
         </div>
       </section>
 
@@ -665,7 +665,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-300 text-center text-sm text-gray-500">
-            © 2024 Relay. All rights reserved.
+            © 2025 Relay. All rights reserved.
           </div>
         </div>
       </footer>

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Relay - Never Miss Another Patient Call",
     description:
-      "Relay text-based answering service ensures every patient reaches your dental practice, even when you're busy with appointments. Convert 85% of missed calls into appointments.",
+      "Relay's text-based answering service ensures every patient reaches your dental practice, even when you're busy with appointments. Convert 85% of missed calls into appointments.",
     url: "https://getrelay.ca",
     siteName: "Relay",
     images: [

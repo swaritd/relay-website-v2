@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react"
 import { Analytics } from "@vercel/analytics/react"
 
 function RelayLogo({ className = "h-8 w-auto" }: { className?: string }) {
-  return <img src="/relay-logo-cropped.svg" alt="Relay" className={className} />
+  return <img src="/relay-text-cropped.svg" alt="Relay" className={className} />
 }
 
 function DynamicChatDemo() {

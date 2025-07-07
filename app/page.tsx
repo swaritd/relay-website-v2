@@ -18,21 +18,22 @@ function DynamicChatDemo() {
   const messages = [
     {
       type: "system",
-      content: "Missed call from Sarah Johnson",
-      time: "2:34 PM",
+      content: "Missed call from +1 647-238-9760",
+      time: "9:34 PM",
     },
     {
       type: "bot",
       content:
-        "Hi Sarah! I see you tried to reach Smile Dental. I'm here to help! Are you looking to schedule an appointment or do you have a question about your treatment?",
+        "Hi there! Thanks for reaching out to Smile Dental. I'm sorry we missed your call. I'm here to help.To start, could you please tell me your name and how we can help?",
     },
     {
       type: "user",
-      content: "Hi! Yes, I need to schedule a cleaning appointment. Do you have anything available next week?",
+      content: "hi, ya. I'm ajay - wanted to reschedule my cleaning to next week. would prefer friday after 2",
     },
     {
       type: "bot",
-      content: "Perfect! I have Tuesday at 10 AM or Thursday at 2 PM available. Which works better for you?",
+      content:
+        "I'll pass this information to the team, and someone will be in touch with you to confirm your new appointment! Is there anything else I can help you with?",
     },
   ]
 
@@ -87,7 +88,7 @@ function DynamicChatDemo() {
                 </div>
                 <div className="flex-1">
                   <div className="text-sm text-gray-500">Missed call from</div>
-                  <div className="font-medium text-[#11475b]">Sarah Johnson</div>
+                  <div className="font-medium text-[#11475b]">+1 647-238-9760</div>
                 </div>
                 <div className="text-xs text-gray-400">{message.time}</div>
               </div>
@@ -281,6 +282,8 @@ function ROICalculator() {
 }
 
 export default function LandingPage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   return (
     <div className="min-h-screen bg-white">
       <header className="border-b border-gray-200">
@@ -290,7 +293,7 @@ export default function LandingPage() {
               <RelayLogo className="h-11 w-auto" />
             </div>
 
-            {/* Navigation Menu */}
+            {/* Desktop Navigation Menu */}
             <nav className="hidden md:flex items-center space-x-8">
               <a
                 href="#features"
@@ -346,12 +349,79 @@ export default function LandingPage() {
                 Get Started
               </a>
             </nav>
+
+            {/* Mobile menu button */}
+            <button
+              className="md:hidden p-2 rounded-md text-gray-600 hover:text-[#11475b] hover:bg-gray-100 transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                {mobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
           </div>
+
+          {/* Mobile Navigation Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden border-t border-gray-200 py-4">
+              <nav className="flex flex-col space-y-4">
+                <a
+                  href="#features"
+                  className="text-gray-600 hover:text-[#11475b] transition-colors cursor-pointer px-2 py-1"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    setMobileMenuOpen(false)
+                    document.getElementById("features")?.scrollIntoView({ behavior: "smooth" })
+                  }}
+                >
+                  Features
+                </a>
+                <a
+                  href="#how-it-works"
+                  className="text-gray-600 hover:text-[#11475b] transition-colors cursor-pointer px-2 py-1"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    setMobileMenuOpen(false)
+                    document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })
+                  }}
+                >
+                  How It Works
+                </a>
+                <a
+                  href="#roi"
+                  className="text-gray-600 hover:text-[#11475b] transition-colors cursor-pointer px-2 py-1"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    setMobileMenuOpen(false)
+                    document.getElementById("roi")?.scrollIntoView({ behavior: "smooth" })
+                  }}
+                >
+                  ROI
+                </a>
+                <a
+                  href="#pricing"
+                  className="text-gray-600 hover:text-[#11475b] transition-colors cursor-pointer px-2 py-1"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    setMobileMenuOpen(false)
+                    document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })
+                  }}
+                >
+                  Pricing
+                </a>
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="py-16 lg:py-20">
+      <section className="py-12 sm:py-16 lg:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <Badge
@@ -361,14 +431,14 @@ export default function LandingPage() {
             >
               For Dental Practices
             </Badge>
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight" style={{ color: "#11475b" }}>
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 leading-tight" style={{ color: "#11475b" }}>
               Never Miss Another
               <br />
               <span style={{ color: "#8db5c4" }}>Patient Call</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Relay's text-based answering service ensures every patient reaches your dental practice, even when you're
-              busy with appointments.
+              Relay's text-based answering service ensures every patient reaches your dental practice, even after hours
+              and when your team is busy.
             </p>
             <div className="flex justify-center">
               <a
@@ -384,34 +454,6 @@ export default function LandingPage() {
               >
                 Schedule a Demo
               </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section id="features" className="py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-2xl shadow-lg border p-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-              <div>
-                <div className="text-3xl font-bold mb-2" style={{ color: "#8db5c4" }}>
-                  85%
-                </div>
-                <div className="text-gray-600">of missed calls converted to appointments</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold mb-2" style={{ color: "#8db5c4" }}>
-                  24/7
-                </div>
-                <div className="text-gray-600">automated patient engagement</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold mb-2" style={{ color: "#8db5c4" }}>
-                  30%
-                </div>
-                <div className="text-gray-600">of calls go unanswered on average</div>
-              </div>
             </div>
           </div>
         </div>
@@ -473,10 +515,10 @@ export default function LandingPage() {
                   <CheckCircle className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-4" style={{ color: "#11475b" }}>
-                  Appointments Booked
+                  Actionable Summaries
                 </h3>
                 <p className="text-gray-600">
-                  Smart responses help schedule appointments and answer common questions automatically
+                  Receive an intelligent summary after Relay handles each call, emailed to you in real-time
                 </p>
               </CardContent>
             </Card>
@@ -490,7 +532,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-3xl lg:text-4xl font-bold mb-8" style={{ color: "#11475b" }}>
-                Built for Busy Dental Practices
+                Built to Support Dental Practice Staff
               </h2>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
@@ -502,9 +544,9 @@ export default function LandingPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-2" style={{ color: "#11475b" }}>
-                      Reduce No-Shows
+                      Capture every patient opportunity, 24/7
                     </h3>
-                    <p className="text-gray-600">Automated reminders and easy rescheduling keep your schedule full</p>
+                    <p className="text-gray-600">Never miss a new patient call, even after hours</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -518,7 +560,9 @@ export default function LandingPage() {
                     <h3 className="font-semibold mb-2" style={{ color: "#11475b" }}>
                       Save Staff Time
                     </h3>
-                    <p className="text-gray-600">Handle routine inquiries automatically, freeing up your team</p>
+                    <p className="text-gray-600">
+                      Free the front office from voicemail duty. Less phone tag, more patient care
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -530,23 +574,9 @@ export default function LandingPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-2" style={{ color: "#11475b" }}>
-                      Increase Revenue
+                      Increase Revenue on Autopilot
                     </h3>
-                    <p className="text-gray-600">Convert more missed calls into paying patients</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div
-                    className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
-                    style={{ backgroundColor: "#8db5c4" }}
-                  >
-                    <CheckCircle className="h-4 w-4 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2" style={{ color: "#11475b" }}>
-                      HIPAA Compliant
-                    </h3>
-                    <p className="text-gray-600">Secure messaging that meets healthcare privacy standards</p>
+                    <p className="text-gray-600">Convert new patient calls 24/7</p>
                   </div>
                 </div>
               </div>
@@ -595,7 +625,7 @@ export default function LandingPage() {
 
               <div className="mb-8">
                 <div className="text-5xl font-bold mb-2" style={{ color: "#11475b" }}>
-                  C$250
+                  C$249
                 </div>
                 <div className="text-xl text-gray-600">per month, per location</div>
               </div>
@@ -629,19 +659,9 @@ export default function LandingPage() {
                 Schedule a Demo
               </a>
 
-              <p className="text-sm text-gray-500 mt-4">No credit card required • Cancel anytime</p>
+              <p className="text-sm text-gray-500 mt-4">No contracts • Cancel anytime</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6" style={{ color: "#11475b" }}>
-            Ready to Stop Missing Patients?
-          </h2>
-          <p className="text-xl text-gray-600 mb-8">Reduce revenue loss with Relay</p>
         </div>
       </section>
 
